@@ -5,5 +5,6 @@
 #import <Expo/Expo.h>
 
 @interface AppDelegate : EXAppDelegateWrapper <RCTBridgeDelegate>
+@property (nonatomic, assign) BOOL isTimeout;
 
 @end
