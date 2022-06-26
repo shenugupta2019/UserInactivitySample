@@ -1,11 +1,4 @@
 {
-  "expo": {
-    "name": "SampleiOSNativeCallBack",
-    "slug": "SampleiOSNativeCallBack",
-    "version": "1.0.0",
-    "assetBundlePatterns": [
-      "**/*"
-    ]
-  },
-  "name": "SampleiOSNativeCallBack"
+  "name": "DemoApp",
+  "displayName": "DemoApp"
 }
