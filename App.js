@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {View, Text, StyleSheet, Button} from 'react-native';
 import {NativeModules,NativeEventEmitter} from 'react-native';
-//const { NativeView } = NativeModules;
+const { Navigation } = NativeModules;
 //const eventEmitter = new NativeEventEmitter(NativeView);
 
 
@@ -76,8 +76,7 @@ const App = props => {
 
     const navigateToNative = () => {
         console.log('react called');
-     
-     //   NativeModules.NativeView.changeToNativeView();
+        NativeModules.Navigation.navigateTo('NativeDemo');
       // };
    //   NativeModules.Counter.increment(res => console.log(res));
        // NativeModules.NativeView.changeToNativeView(res => console.log(res));;

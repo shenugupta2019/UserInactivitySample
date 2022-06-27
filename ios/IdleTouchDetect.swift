@@ -7,7 +7,7 @@
 
 import Foundation
 @objc (IdleDetect)
-class IdleDetect: RCTEventEmitter{
+class IdleDetect: NSObject{
   
   
   @objc
@@ -16,16 +16,16 @@ class IdleDetect: RCTEventEmitter{
   }
   
   @objc
-  override static func requiresMainQueueSetup() ->Bool{
+   static func requiresMainQueueSetup() ->Bool{
     return true;
   }
   
   @objc
-  override func constantsToExport() -> [AnyHashable: Any]!{
+   func constantsToExport() -> [AnyHashable: Any]!{
     return ["initialCount": 0];
   }
   
-  override func supportedEvents() -> [String]! {
+   func supportedEvents() -> [String]! {
     return ["onIdleDetect"];
   }
   
@@ -52,16 +52,25 @@ func startSessionTimer() {
   let appDelegate = UIApplication.shared.delegate as! AppDelegate
   appDelegate.sessionTimeoutTimer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(sessionTimeOut), userInfo: nil, repeats: true)
 }
+  
+  @objc func idleDetectResponse(callback successCallback: RCTResponseSenderBlock) {
+     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+      NSLog("Log from Swift: \(appDelegate.isUserActive)")
+      successCallback([appDelegate.isUserActive])
+    }
 
 func stopSessionTimer() {
   let appDelegate = UIApplication.shared.delegate as! AppDelegate
-  if appDelegate.idleTimer != nil {
+  if appDelegate.idleTimer != nil || appDelegate.sessionTimeoutTimer != nil{
     appDelegate.sessionTimeoutTimer.invalidate()
     appDelegate.sessionTimeoutTimer = nil
+    appDelegate.idleTimer.invalidate()
+    appDelegate.idleTimer = nil
   }
+  appDelegate.isUserActive = false
   dismissViewControllers()
+  appDelegate.isNativeViewLoaded = false
   //self.sendEvent(withName: "onIdleDetect", body: ["count increase",self.count])
-  
 }
 
 func resetTimer() {

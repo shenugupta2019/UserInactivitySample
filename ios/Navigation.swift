@@ -12,9 +12,12 @@ import Foundation
 @objc(Navigation)
 class Navigation: NSObject {
   
-  
   @objc
   func navigateTo(_ destination: NSString) -> Void {
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    appDelegate.isNativeViewLoaded = true
+    let idleDetect = IdleDetect()
+    idleDetect.startIdleTimer()
     let modelVC: UIViewController;
     switch destination {
     case "NativeDemo":

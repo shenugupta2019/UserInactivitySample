@@ -48,11 +48,11 @@ class GlobalTouchService: UIApplication {
                 if touch.phase == UITouch.Phase.ended {
                   let appDelegate = UIApplication.shared.delegate as! AppDelegate
                   if appDelegate.isNativeViewLoaded == true {
-                    self.checkEvent()
-                    print("SHENU GUPTA View Loaded")
+                    appDelegate.isUserActive = true
+                  let idleDetect = IdleDetect()
+                   idleDetect.resetTimer()
                   }
                     print("Touch Detect")
-                  
                 }
             }
         }
@@ -71,7 +71,6 @@ class GlobalTouchService: UIApplication {
       appDelegate.sessionTimeoutTimer.invalidate()
         appDelegate.sessionTimeoutTimer = nil
       }
-     
     }
   }
 }

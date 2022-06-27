@@ -12,8 +12,8 @@
 #import <React/RCTEventEmitter.h>
 
 
-@interface RCT_EXTERN_MODULE(IdleDetect,RCTEventEmitter)
+@interface RCT_EXTERN_MODULE(IdleDetect,NSObject)
 
-RCT_EXTERN_METHOD(idleDetect:(RCTResponseSenderBlock)callback)
+RCT_EXTERN_METHOD(idleDetectResponse:(RCTResponseSenderBlock)callback)
 
 @end
