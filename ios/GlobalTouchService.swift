@@ -57,22 +57,6 @@ class GlobalTouchService: UIApplication {
             }
         }
     }
-  
-  func checkEvent() {
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    if appDelegate.isNativeViewLoaded == true{
-  
-      if appDelegate.idleTimer != nil {
-        appDelegate.idleTimer.invalidate()
-        appDelegate.idleTimer = nil
-      }
-     
-      if appDelegate.sessionTimeoutTimer != nil{
-      appDelegate.sessionTimeoutTimer.invalidate()
-        appDelegate.sessionTimeoutTimer = nil
-      }
-    }
-  }
 }
 
 
