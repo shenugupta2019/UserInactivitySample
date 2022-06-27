@@ -12,20 +12,18 @@ import {
     Text,
 } from 'react-native';
 
-const { EventEmitteriOS } = NativeModules;
-const eventEmitter = new NativeEventEmitter(EventEmitteriOS);
 
 export default class DemoApp extends Component {
 state = {
     nativeModuleText: null
 }
 componentWillMount() {
-    eventEmitter.addListener('EventReminder', result =>
-         console.log('onDecrement received', result),
-       );
+    // eventEmitter.addListener('EventReminder', result =>
+    //      console.log('onDecrement received', result),
+    //    );
 }
 componentWillUnmount() {
-    eventEmitter.remove();
+   // eventEmitter.remove();
 }
 
     render() {

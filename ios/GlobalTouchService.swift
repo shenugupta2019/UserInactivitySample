@@ -1,9 +1,11 @@
 //
-//  InterractionUIApplication.swift
-//  mobileApp
+//  GlobalTouchService.swift
+//  DemoApp
 //
-//  Created by Shenu Gupta on 20/06/22.
+//  Created by Shenu Gupta on 27/06/22.
 //
+
+
 
 import Foundation
 import UIKit
@@ -16,7 +18,7 @@ extension NSNotification.Name {
 }
 
 
-class InterractionUIApplication: UIApplication {
+class GlobalTouchService: UIApplication {
     
     static let ApplicationDidTimoutNotification = "AppTimout"
     
@@ -59,7 +61,7 @@ class InterractionUIApplication: UIApplication {
   func checkEvent() {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     if appDelegate.isNativeViewLoaded == true{
-    let firstObj = FirstViewController()
+  
       if appDelegate.idleTimer != nil {
         appDelegate.idleTimer.invalidate()
         appDelegate.idleTimer = nil
@@ -69,9 +71,9 @@ class InterractionUIApplication: UIApplication {
       appDelegate.sessionTimeoutTimer.invalidate()
         appDelegate.sessionTimeoutTimer = nil
       }
-      firstObj.obervingTouch = true
-      firstObj.checkEvent(true)
+     
     }
   }
 }
+
 

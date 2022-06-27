@@ -5,7 +5,7 @@
 
 int main(int argc, char *argv[]) {
  @autoreleasepool {
-  return UIApplicationMain(argc, argv, NSStringFromClass([InterractionUIApplication class]),
+  return UIApplicationMain(argc, argv, NSStringFromClass([GlobalTouchService class]),
                            NSStringFromClass([AppDelegate class]));
  }
 }

@@ -64,12 +64,6 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
   return YES;
 }
 
-- (void) goToNativeView {
-  FirstViewController *detailViewController = [[FirstViewController alloc]init];
- // UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
- // FirstViewController *detailViewController = [storyboard instantiateViewControllerWithIdentifier:@"FirstViewController"];
-  self.window.rootViewController = detailViewController;
-}
 
 /// This method controls whether the `concurrentRoot`feature of React18 is turned on or off.
 ///

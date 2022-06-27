@@ -12,15 +12,13 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		571B11122865DF980087E0E4 /* NativeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 571B11112865DF980087E0E4 /* NativeView.m */; };
-		571B11152865DFA90087E0E4 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 571B11142865DFA90087E0E4 /* FirstViewController.m */; };
-		571B11182865DFB20087E0E4 /* InterractionUIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571B11172865DFB20087E0E4 /* InterractionUIApplication.swift */; };
-		57E7AC7528673C990050F7B8 /* EventEmitteriOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 57E7AC7428673C990050F7B8 /* EventEmitteriOS.m */; };
-		57E7AC7928680CC50050F7B8 /* TestFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E7AC7828680CC50050F7B8 /* TestFile.swift */; };
-		57E7AC7B286810950050F7B8 /* NativeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E7AC7A286810950050F7B8 /* NativeView.swift */; };
-		57F8C20528686721001E4998 /* MyCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F8C20228686721001E4998 /* MyCustomView.swift */; };
-		57F8C20628686721001E4998 /* MyCustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57F8C20328686721001E4998 /* MyCustomView.m */; };
-		57F8C20728686721001E4998 /* MyCustomViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F8C20428686721001E4998 /* MyCustomViewManager.swift */; };
+		570834E6286A0B4E0075B89A /* GlobalTouchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570834E5286A0B4E0075B89A /* GlobalTouchService.swift */; };
+		570834E9286A0BC60075B89A /* NativeDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570834E7286A0BC60075B89A /* NativeDemoViewController.swift */; };
+		570834EA286A0BC60075B89A /* NativeDemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 570834E8286A0BC60075B89A /* NativeDemoViewController.xib */; };
+		570834ED286A0BDF0075B89A /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570834EB286A0BDF0075B89A /* Navigation.swift */; };
+		570834EE286A0BDF0075B89A /* NavigationModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 570834EC286A0BDF0075B89A /* NavigationModule.m */; };
+		570834F0286A0C6C0075B89A /* IdleTouchDetect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570834EF286A0C6C0075B89A /* IdleTouchDetect.swift */; };
+		570834F2286A0C7F0075B89A /* IdleTouchDetect.m in Sources */ = {isa = PBXBuildFile; fileRef = 570834F1286A0C7F0075B89A /* IdleTouchDetect.m */; };
 		7699B88040F8A987B510C191 /* libPods-DemoApp-DemoAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-DemoApp-DemoAppTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -47,19 +45,15 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = DemoApp/main.m; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-DemoApp-DemoAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DemoApp-DemoAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4392A12AC88292D35C810B /* Pods-DemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoApp.debug.xcconfig"; path = "Target Support Files/Pods-DemoApp/Pods-DemoApp.debug.xcconfig"; sourceTree = "<group>"; };
+		570834E5286A0B4E0075B89A /* GlobalTouchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalTouchService.swift; sourceTree = "<group>"; };
+		570834E7286A0BC60075B89A /* NativeDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NativeDemoViewController.swift; sourceTree = "<group>"; };
+		570834E8286A0BC60075B89A /* NativeDemoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NativeDemoViewController.xib; sourceTree = "<group>"; };
+		570834EB286A0BDF0075B89A /* Navigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
+		570834EC286A0BDF0075B89A /* NavigationModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NavigationModule.m; path = "../../../../Downloads/react-native-native-module-master/ios/Navigation/NavigationModule.m"; sourceTree = "<group>"; };
+		570834EF286A0C6C0075B89A /* IdleTouchDetect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdleTouchDetect.swift; sourceTree = "<group>"; };
+		570834F1286A0C7F0075B89A /* IdleTouchDetect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IdleTouchDetect.m; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-DemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoApp.release.xcconfig"; path = "Target Support Files/Pods-DemoApp/Pods-DemoApp.release.xcconfig"; sourceTree = "<group>"; };
-		571B11112865DF980087E0E4 /* NativeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NativeView.m; sourceTree = "<group>"; };
-		571B11132865DFA90087E0E4 /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		571B11142865DFA90087E0E4 /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
 		571B11162865DFB10087E0E4 /* DemoApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DemoApp-Bridging-Header.h"; sourceTree = "<group>"; };
-		571B11172865DFB20087E0E4 /* InterractionUIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterractionUIApplication.swift; sourceTree = "<group>"; };
-		57E7AC7328673C990050F7B8 /* EventEmitteriOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventEmitteriOS.h; sourceTree = "<group>"; };
-		57E7AC7428673C990050F7B8 /* EventEmitteriOS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventEmitteriOS.m; sourceTree = "<group>"; };
-		57E7AC7828680CC50050F7B8 /* TestFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFile.swift; sourceTree = "<group>"; };
-		57E7AC7A286810950050F7B8 /* NativeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeView.swift; sourceTree = "<group>"; };
-		57F8C20228686721001E4998 /* MyCustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCustomView.swift; sourceTree = "<group>"; };
-		57F8C20328686721001E4998 /* MyCustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCustomView.m; sourceTree = "<group>"; };
-		57F8C20428686721001E4998 /* MyCustomViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCustomViewManager.swift; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-DemoApp-DemoAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoApp-DemoAppTests.debug.xcconfig"; path = "Target Support Files/Pods-DemoApp-DemoAppTests/Pods-DemoApp-DemoAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-DemoApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DemoApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = DemoApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -107,13 +101,10 @@
 		13B07FAE1A68108700A75B9A /* DemoApp */ = {
 			isa = PBXGroup;
 			children = (
-				571B11172865DFB20087E0E4 /* InterractionUIApplication.swift */,
-				57F8C20328686721001E4998 /* MyCustomView.m */,
-				57F8C20228686721001E4998 /* MyCustomView.swift */,
-				57F8C20428686721001E4998 /* MyCustomViewManager.swift */,
-				571B11132865DFA90087E0E4 /* FirstViewController.h */,
-				571B11142865DFA90087E0E4 /* FirstViewController.m */,
-				571B11112865DF980087E0E4 /* NativeView.m */,
+				570834EB286A0BDF0075B89A /* Navigation.swift */,
+				570834EC286A0BDF0075B89A /* NavigationModule.m */,
+				570834E7286A0BC60075B89A /* NativeDemoViewController.swift */,
+				570834E8286A0BC60075B89A /* NativeDemoViewController.xib */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -121,10 +112,9 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				571B11162865DFB10087E0E4 /* DemoApp-Bridging-Header.h */,
-				57E7AC7328673C990050F7B8 /* EventEmitteriOS.h */,
-				57E7AC7428673C990050F7B8 /* EventEmitteriOS.m */,
-				57E7AC7828680CC50050F7B8 /* TestFile.swift */,
-				57E7AC7A286810950050F7B8 /* NativeView.swift */,
+				570834E5286A0B4E0075B89A /* GlobalTouchService.swift */,
+				570834EF286A0C6C0075B89A /* IdleTouchDetect.swift */,
+				570834F1286A0C7F0075B89A /* IdleTouchDetect.m */,
 			);
 			name = DemoApp;
 			sourceTree = "<group>";
@@ -276,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				570834EA286A0BC60075B89A /* NativeDemoViewController.xib in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,17 +436,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				571B11122865DF980087E0E4 /* NativeView.m in Sources */,
-				57F8C20728686721001E4998 /* MyCustomViewManager.swift in Sources */,
-				57F8C20528686721001E4998 /* MyCustomView.swift in Sources */,
+				570834E9286A0BC60075B89A /* NativeDemoViewController.swift in Sources */,
+				570834EE286A0BDF0075B89A /* NavigationModule.m in Sources */,
+				570834E6286A0B4E0075B89A /* GlobalTouchService.swift in Sources */,
+				570834ED286A0BDF0075B89A /* Navigation.swift in Sources */,
+				570834F0286A0C6C0075B89A /* IdleTouchDetect.swift in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
-				57F8C20628686721001E4998 /* MyCustomView.m in Sources */,
+				570834F2286A0C7F0075B89A /* IdleTouchDetect.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
-				57E7AC7928680CC50050F7B8 /* TestFile.swift in Sources */,
-				571B11152865DFA90087E0E4 /* FirstViewController.m in Sources */,
-				57E7AC7B286810950050F7B8 /* NativeView.swift in Sources */,
-				571B11182865DFB20087E0E4 /* InterractionUIApplication.swift in Sources */,
-				57E7AC7528673C990050F7B8 /* EventEmitteriOS.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

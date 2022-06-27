@@ -1,6 +1,5 @@
 #import <React/RCTBridgeDelegate.h>
 #import <UIKit/UIKit.h>
-#import "FirstViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, RCTBridgeDelegate>
 
@@ -11,6 +10,5 @@
 @property (nonatomic, assign)BOOL isSessionTimeout;
 @property (nonatomic, assign)RCTBridge *bridge;
 
-- (void) goToNativeView;
 
 @end

@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react';
 import {View, Text, StyleSheet, Button} from 'react-native';
 import {NativeModules,NativeEventEmitter} from 'react-native';
-const { NativeView } = NativeModules;
-const eventEmitter = new NativeEventEmitter(NativeView);
+//const { NativeView } = NativeModules;
+//const eventEmitter = new NativeEventEmitter(NativeView);
 
 
 
@@ -41,12 +41,12 @@ const App = props => {
   //   CounterEvents.addListener('onDecrement', result =>
   //     console.log('onDecrement received', result),
   //   );
-  eventEmitter.addListener('EventReminder', result =>
-    console.log('NativeiOSToReactNative SHENU', result),
-  );
+  // eventEmitter.addListener('EventReminder', result =>
+  //   console.log('NativeiOSToReactNative SHENU', result),
+  // );
 
     return () => {
-      eventEmitter.removeAllListeners();
+      //eventEmitter.removeAllListeners();
     };
   }, []);
 
@@ -80,7 +80,7 @@ const App = props => {
      //   NativeModules.NativeView.changeToNativeView();
       // };
    //   NativeModules.Counter.increment(res => console.log(res));
-        NativeModules.NativeView.changeToNativeView(res => console.log(res));;
+       // NativeModules.NativeView.changeToNativeView(res => console.log(res));;
       };
     
 
