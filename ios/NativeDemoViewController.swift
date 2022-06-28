@@ -12,12 +12,13 @@ import Foundation
 class NativeDemoViewController: UIViewController  {
 
   @IBAction func onGoBack(_ sender: UIButton) {
+    let idleDetect = IdleDetect()
+    idleDetect.resetTimer()
     self.dismiss(animated: true, completion: nil)
   }
   
  
-  
-  override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
       super.viewWillAppear(true)
       self.navigationController?.setNavigationBarHidden(true, animated: true)
   }

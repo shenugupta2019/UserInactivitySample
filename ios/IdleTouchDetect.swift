@@ -54,7 +54,14 @@ func startSessionTimer() {
 }
   
   @objc func idleDetectResponse(callback successCallback: RCTResponseSenderBlock) {
-     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    guard let idleTimer = appDelegate.idleTimer else {
+      return
+    }
+    guard let sessionTimer = appDelegate.sessionTimeoutTimer else {
+      return
+  }
+    
       NSLog("Log from Swift: \(appDelegate.isUserActive)")
       successCallback([appDelegate.isUserActive])
     }

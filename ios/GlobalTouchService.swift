@@ -40,15 +40,23 @@ class GlobalTouchService: UIApplication {
      
      
    //  print("the visible view controller",visibleViewCntl)
+      let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
         if let touches = event.allTouches {
       
             for touch in touches {
               
                 if touch.phase == UITouch.Phase.ended {
-                  let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                 
                   if appDelegate.isNativeViewLoaded == true {
                     appDelegate.isUserActive = true
+                    guard let idleTimer = appDelegate.idleTimer else {
+                      return
+                    }
+                    guard let sessionTimer = appDelegate.sessionTimeoutTimer else {
+                      return
+                  }
+
                   let idleDetect = IdleDetect()
                    idleDetect.resetTimer()
                   }
