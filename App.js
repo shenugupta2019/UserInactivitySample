@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {View, Text, StyleSheet, Button} from 'react-native';
 import {NativeModules,NativeEventEmitter} from 'react-native';
-const { Navigation } = NativeModules;
+//const { Navigation } = NativeModules;
 //const eventEmitter = new NativeEventEmitter(NativeView);
 
 

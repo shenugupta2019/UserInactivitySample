@@ -16,42 +16,44 @@ class IdleDetect: NSObject{
   }
   
   @objc
-   static func requiresMainQueueSetup() ->Bool{
+  static func requiresMainQueueSetup() ->Bool{
     return true;
   }
   
   @objc
-   func constantsToExport() -> [AnyHashable: Any]!{
+  func constantsToExport() -> [AnyHashable: Any]!{
     return ["initialCount": 0];
   }
   
-   func supportedEvents() -> [String]! {
+  func supportedEvents() -> [String]! {
     return ["onIdleDetect"];
   }
   
   func startIdleTimer() {
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    appDelegate.idleTimer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(idleTimeOut), userInfo: nil, repeats: true)
+    DispatchQueue.main.async {
+      let appDelegate = UIApplication.shared.delegate as! AppDelegate
+      appDelegate.idleTimer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(self.idleTimeOut), userInfo: nil, repeats: true)
+    }
   }
   
   func stopIdleTimer() {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     if appDelegate.idleTimer != nil {
-    appDelegate.idleTimer.invalidate()
-    appDelegate.idleTimer = nil
+      appDelegate.idleTimer.invalidate()
+      appDelegate.idleTimer = nil
     }
     startSessionTimer()
   }
   
   @objc func idleTimeOut() {
     print("Idle Timer fired!")
-  stopIdleTimer()
-}
-
-func startSessionTimer() {
-  let appDelegate = UIApplication.shared.delegate as! AppDelegate
-  appDelegate.sessionTimeoutTimer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(sessionTimeOut), userInfo: nil, repeats: true)
-}
+    stopIdleTimer()
+  }
+  
+  func startSessionTimer() {
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    appDelegate.sessionTimeoutTimer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(sessionTimeOut), userInfo: nil, repeats: true)
+  }
   
   @objc func idleDetectResponse(callback successCallback: RCTResponseSenderBlock) {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -60,44 +62,44 @@ func startSessionTimer() {
     }
     guard let sessionTimer = appDelegate.sessionTimeoutTimer else {
       return
-  }
-    
-      NSLog("Log from Swift: \(appDelegate.isUserActive)")
-      successCallback([appDelegate.isUserActive])
     }
-
-func stopSessionTimer() {
-  let appDelegate = UIApplication.shared.delegate as! AppDelegate
-  if appDelegate.idleTimer != nil || appDelegate.sessionTimeoutTimer != nil{
+    
+    NSLog("Log from Swift: \(appDelegate.isUserActive)")
+    successCallback([appDelegate.isUserActive])
+  }
+  
+  func stopSessionTimer() {
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    if let idleTimer = appDelegate.idleTimer, let sessionTimer = appDelegate.sessionTimeoutTimer  {
+      idleTimer.invalidate()
+     // idleTimer = nil
+      sessionTimer.invalidate()
+      //sessionTimer = nil
+    }
+    appDelegate.isUserActive = false
+    dismissViewControllers()
+    appDelegate.isNativeViewLoaded = false
+    //self.sendEvent(withName: "onIdleDetect", body: ["count increase",self.count])
+  }
+  
+  func resetTimer() {
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     appDelegate.sessionTimeoutTimer.invalidate()
     appDelegate.sessionTimeoutTimer = nil
     appDelegate.idleTimer.invalidate()
     appDelegate.idleTimer = nil
+    self.startIdleTimer()
   }
-  appDelegate.isUserActive = false
-  dismissViewControllers()
-  appDelegate.isNativeViewLoaded = false
-  //self.sendEvent(withName: "onIdleDetect", body: ["count increase",self.count])
-}
-
-func resetTimer() {
-  let appDelegate = UIApplication.shared.delegate as! AppDelegate
-  appDelegate.sessionTimeoutTimer.invalidate()
-  appDelegate.sessionTimeoutTimer = nil
-  appDelegate.idleTimer.invalidate()
-  appDelegate.idleTimer = nil
-  self.startIdleTimer()
-}
-
-@objc func sessionTimeOut() {
+  
+  @objc func sessionTimeOut() {
     print("Session Timer fired!")
-   stopSessionTimer()
- }
-
-func dismissViewControllers() {
-  let appDelegate = UIApplication.shared.delegate as! AppDelegate
-  appDelegate.window?.rootViewController?.dismiss(animated: true, completion: nil)
-}
+    stopSessionTimer()
+  }
+  
+  func dismissViewControllers() {
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    appDelegate.window?.rootViewController?.dismiss(animated: true, completion: nil)
+  }
 }
 
 

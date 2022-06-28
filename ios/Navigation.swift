@@ -14,18 +14,20 @@ class Navigation: NSObject {
   
   @objc
   func navigateTo(_ destination: NSString) -> Void {
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    appDelegate.isNativeViewLoaded = true
+//    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//    appDelegate.isNativeViewLoaded = true
     let idleDetect = IdleDetect()
     idleDetect.startIdleTimer()
-    let modelVC: UIViewController;
-    switch destination {
-    case "NativeDemo":
-      modelVC = NativeDemoViewController()
-    default:
-      return;
-    }
+//    var modelVC: UIViewController;
+//    switch destination {
+//    case "NativeDemo":
+//        modelVC = NativeDemoViewController()
+//
+//    default:
+//      return;
+//    }
     DispatchQueue.main.async {
+      var modelVC = NativeDemoViewController()
       let navController = UINavigationController(rootViewController: modelVC)
       navController.modalPresentationStyle = .fullScreen
       let topController = UIApplication.topMostViewController()

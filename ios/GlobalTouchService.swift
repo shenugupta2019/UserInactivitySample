@@ -25,7 +25,7 @@ class GlobalTouchService: UIApplication {
     // The timeout in seconds for when to fire the idle timer.
     let timeoutInSeconds: TimeInterval = 10//15 * 60
     var isIdleTimeout = false
-    var  appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
+    var  appDelegate: AppDelegate?
   
   override init()
      {
@@ -39,7 +39,6 @@ class GlobalTouchService: UIApplication {
         super.sendEvent(event)
      
      
-   //  print("the visible view controller",visibleViewCntl)
       let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
         if let touches = event.allTouches {
@@ -47,19 +46,18 @@ class GlobalTouchService: UIApplication {
             for touch in touches {
               
                 if touch.phase == UITouch.Phase.ended {
-                 
-                  if appDelegate.isNativeViewLoaded == true {
+                  DispatchQueue.main.async {
                     appDelegate.isUserActive = true
-                    guard let idleTimer = appDelegate.idleTimer else {
-                      return
-                    }
-                    guard let sessionTimer = appDelegate.sessionTimeoutTimer else {
-                      return
-                  }
-
-                  let idleDetect = IdleDetect()
-                   idleDetect.resetTimer()
-                  }
+//                    guard let idleTimer = appDelegate.idleTimer else {
+//                      return
+//                    }
+//                    guard let sessionTimer = appDelegate.sessionTimeoutTimer else {
+//                      return
+//                  }
+//
+//                  let idleDetect = IdleDetect()
+//                   idleDetect.resetTimer()
+//                  }
                     print("Touch Detect")
                 }
             }
@@ -67,4 +65,4 @@ class GlobalTouchService: UIApplication {
     }
 }
 
-
+}
