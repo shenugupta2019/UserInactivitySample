@@ -86,6 +86,7 @@ func resetTimer() {
   appDelegate.sessionTimeoutTimer = nil
   appDelegate.idleTimer.invalidate()
   appDelegate.idleTimer = nil
+  self.startIdleTimer()
 }
 
 @objc func sessionTimeOut() {
