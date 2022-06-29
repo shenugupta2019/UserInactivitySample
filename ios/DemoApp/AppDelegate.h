@@ -1,5 +1,6 @@
 #import <React/RCTBridgeDelegate.h>
 #import <UIKit/UIKit.h>
+@class GlobalTouchService;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, RCTBridgeDelegate>
 
@@ -10,6 +11,9 @@
 @property (nonatomic, assign)BOOL isSessionTimeout;
 @property (nonatomic, assign)RCTBridge *bridge;
 @property (nonatomic, assign)BOOL isUserActive;
+@property(nonatomic,strong)GlobalTouchService *globalTouch;
+
+
 
 
 @end

@@ -2,18 +2,14 @@
 //  IdleTouchDetect.m
 //  DemoApp
 //
-//  Created by Shenu Gupta on 27/06/22.
+//  Created by Shenu Gupta on 29/06/22.
 //
 
 #import <Foundation/Foundation.h>
-#import <Foundation/Foundation.h>
-#import <Foundation/Foundation.h>
-#import <React/RCTBridgeModule.h>
-#import <React/RCTEventEmitter.h>
 
+#import "React/RCTBridgeModule.h"
+@interface RCT_EXTERN_MODULE(IdleTouchDetect,NSObject)
 
-@interface RCT_EXTERN_MODULE(IdleDetect,NSObject)
-
-RCT_EXTERN_METHOD(idleDetectResponse:(RCTResponseSenderBlock)callback)
+RCT_EXTERN_METHOD(startService)
 
 @end

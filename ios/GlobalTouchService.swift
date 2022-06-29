@@ -17,20 +17,20 @@ extension NSNotification.Name {
     public static let TimeOutUserInteraction: NSNotification.Name = NSNotification.Name(rawValue: "TimeOutUserInteraction")
 }
 
-
-class GlobalTouchService: UIApplication {
+@objc (GlobalTouchService)
+ class GlobalTouchService: UIApplication {
     
     static let ApplicationDidTimoutNotification = "AppTimout"
     
     // The timeout in seconds for when to fire the idle timer.
-    let timeoutInSeconds: TimeInterval = 10//15 * 60
+    var timeoutInSeconds: TimeInterval = 5//15 * 60
     var isIdleTimeout = false
     var  appDelegate: AppDelegate?
   
-  override init()
+  override required init()
      {
         super.init()
-       print("INIT METHOD CALLED")
+         print("INIT METHOD CALLED")
         isIdleTimeout = false
      }
     
@@ -42,27 +42,62 @@ class GlobalTouchService: UIApplication {
       let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
         if let touches = event.allTouches {
-      
             for touch in touches {
-              
                 if touch.phase == UITouch.Phase.ended {
-                  DispatchQueue.main.async {
-                    appDelegate.isUserActive = true
-//                    guard let idleTimer = appDelegate.idleTimer else {
-//                      return
-//                    }
-//                    guard let sessionTimer = appDelegate.sessionTimeoutTimer else {
-//                      return
-//                  }
-//
-//                  let idleDetect = IdleDetect()
-//                   idleDetect.resetTimer()
-//                  }
+                  timeoutInSeconds = 5.0
+                  if appDelegate.idleTimer != nil {
+                    if appDelegate.idleTimer.isValid{
+                      appDelegate.idleTimer.invalidate()
+                      appDelegate.idleTimer = nil
+                    }
+                  }
+                  
+                  if appDelegate.idleTimer != nil {
+                    appDelegate.idleTimer.invalidate()
+                    appDelegate.idleTimer = nil
+                  }
+                    
+                  if appDelegate.isNativeViewLoaded == true {
+                        self.startIdleTimer()
+                  }
                     print("Touch Detect")
-                }
             }
         }
     }
 }
+   
+   func startIdleTimer() {
+     
+       let appDelegate = UIApplication.shared.delegate as! AppDelegate
+       if self.timeoutInSeconds == 5.0 {
+         self.timeoutInSeconds = 10.0
+         appDelegate.idleTimer = Timer.scheduledTimer(timeInterval: timeoutInSeconds, target: self, selector: #selector(self.idleTimeOut), userInfo: nil, repeats: true)}
+       
+       else {
+         appDelegate.idleTimer = Timer.scheduledTimer(timeInterval: timeoutInSeconds, target: self, selector: #selector(self.idleTimeOut), userInfo: nil, repeats: true)
+          self.timeoutInSeconds = 5.0
+        }
+       }
+     
+   
+   
+   func stopIdleTimer() {
+     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+     if appDelegate.idleTimer != nil {
+       appDelegate.idleTimer.invalidate()
+       appDelegate.idleTimer = nil
+       if timeoutInSeconds == 5.0 {
+         print("session timeout")
+       }
+       else {
+         print("idle timeout")
+         startIdleTimer()
+       }
+     }
+   }
+   
+     @objc func idleTimeOut() {
+       stopIdleTimer()
+     }
 
 }

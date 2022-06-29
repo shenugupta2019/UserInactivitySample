@@ -12,8 +12,8 @@ import Foundation
 class NativeDemoViewController: UIViewController  {
 
   @IBAction func onGoBack(_ sender: UIButton) {
-    let idleDetect = IdleDetect()
-    idleDetect.resetTimer()
+   // let idleDetect = IdleTouchDetect()
+    //idleDetect.resetTimer()
     self.dismiss(animated: true, completion: nil)
   }
   
