@@ -17,7 +17,10 @@ extension NSNotification.Name {
     public static let TimeOutUserInteraction: NSNotification.Name = NSNotification.Name(rawValue: "TimeOutUserInteraction")
 }
 
-@objc (GlobalTouchService)
+protocol GlobalTouchServiceDelegate {
+  func sendData()
+}
+
  class GlobalTouchService: UIApplication {
     
     static let ApplicationDidTimoutNotification = "AppTimout"
@@ -30,6 +33,7 @@ extension NSNotification.Name {
   override required init()
      {
         super.init()
+      
          print("INIT METHOD CALLED")
         isIdleTimeout = false
      }
@@ -80,14 +84,15 @@ extension NSNotification.Name {
        }
      
    
-   
-   func stopIdleTimer() {
+    func stopIdleTimer() {
      let appDelegate = UIApplication.shared.delegate as! AppDelegate
      if appDelegate.idleTimer != nil {
        appDelegate.idleTimer.invalidate()
        appDelegate.idleTimer = nil
        if timeoutInSeconds == 5.0 {
+         EventEmitter.sharedInstance.dispatch(name: "testEvent", body: "Shenu Gupta")
          print("session timeout")
+        // IdleTouchDetect.shared.sendTest()
        }
        else {
          print("idle timeout")
@@ -99,5 +104,5 @@ extension NSNotification.Name {
      @objc func idleTimeOut() {
        stopIdleTimer()
      }
-
 }
+

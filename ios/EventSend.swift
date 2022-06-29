@@ -14,13 +14,13 @@ class EventSend: RCTEventEmitter {
   
   override init() {
     super.init()
-//    self.manager = testFile.shared
-//    self.manager?.testEventCallback = testEventCallback
+    self.manager = testFile.shared
+    self.manager?.testEventCallback = testEventCallback
   }
   
   @objc
   func sendTest() {
-   // manager?.sendTest()
+    manager?.sendTest()
   }
   
   func testEventCallback(_ message: String) {

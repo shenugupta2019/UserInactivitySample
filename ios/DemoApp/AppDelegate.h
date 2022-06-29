@@ -13,7 +13,4 @@
 @property (nonatomic, assign)BOOL isUserActive;
 @property(nonatomic,strong)GlobalTouchService *globalTouch;
 
-
-
-
 @end

@@ -1,28 +1,26 @@
 import React, {useEffect} from 'react';
 import {View, Text, StyleSheet, Button} from 'react-native';
-import {NativeModules} from 'react-native';
-//const eventEmitter = new NativeEventEmitter(NativeModules.IdleTouchDetect);
+import {NativeModules,NativeEventEmitter }from 'react-native';
+const eventEmitter = new NativeEventEmitter(NativeModules.IdleTouchDetect);
 
 
 
 const  startGlobalService = () => {
   const touchService = NativeModules.IdleTouchDetect;
   touchService.startService();
-  
   };
 
-// s
+// 
 
 const App = props => {
   useEffect(() => {
-  // startGlobalTouchService();
-  //   eventEmitter.addListener('testEvent', result =>
-  //   console.log('NativeiOSToReactNative SHENU', result),
-  // );
+    eventEmitter.addListener('testEvent', result =>
+    console.log('NativeiOSToReactNative SHENU', result),
+  );
    
 
     return () => {
-     // eventEmitter.removeAllListeners();
+     eventEmitter.removeAllListeners();
     };
   }, []);
 
