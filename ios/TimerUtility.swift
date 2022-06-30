@@ -16,6 +16,7 @@ class TimerUtility {
       if appDelegate.idleTimer.isValid{
         appDelegate.idleTimer.invalidate()
         appDelegate.idleTimer = nil
+        
       }
     }
     

@@ -18,9 +18,6 @@
 		570834ED286A0BDF0075B89A /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570834EB286A0BDF0075B89A /* Navigation.swift */; };
 		570834EE286A0BDF0075B89A /* NavigationModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 570834EC286A0BDF0075B89A /* NavigationModule.m */; };
 		570834F0286A0C6C0075B89A /* IdleTouchDetect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570834EF286A0C6C0075B89A /* IdleTouchDetect.swift */; };
-		572D144E286B6F6300F0AC9C /* testFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572D144D286B6F6300F0AC9C /* testFile.swift */; };
-		572D1454286B781500F0AC9C /* EventSend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572D1453286B781500F0AC9C /* EventSend.swift */; };
-		572D1456286B782400F0AC9C /* EventSend.m in Sources */ = {isa = PBXBuildFile; fileRef = 572D1455286B782400F0AC9C /* EventSend.m */; };
 		57990647286C68CF00A31B9F /* IdleTouchDetect.m in Sources */ = {isa = PBXBuildFile; fileRef = 57990646286C68CF00A31B9F /* IdleTouchDetect.m */; };
 		57990649286CBC1200A31B9F /* EventEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57990648286CBC1200A31B9F /* EventEmitter.swift */; };
 		5799064B286D5B6100A31B9F /* TimerUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5799064A286D5B6100A31B9F /* TimerUtility.swift */; };
@@ -58,9 +55,6 @@
 		570834EF286A0C6C0075B89A /* IdleTouchDetect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdleTouchDetect.swift; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-DemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoApp.release.xcconfig"; path = "Target Support Files/Pods-DemoApp/Pods-DemoApp.release.xcconfig"; sourceTree = "<group>"; };
 		571B11162865DFB10087E0E4 /* DemoApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DemoApp-Bridging-Header.h"; sourceTree = "<group>"; };
-		572D144D286B6F6300F0AC9C /* testFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testFile.swift; sourceTree = "<group>"; };
-		572D1453286B781500F0AC9C /* EventSend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSend.swift; sourceTree = "<group>"; };
-		572D1455286B782400F0AC9C /* EventSend.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventSend.m; sourceTree = "<group>"; };
 		57990646286C68CF00A31B9F /* IdleTouchDetect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IdleTouchDetect.m; sourceTree = "<group>"; };
 		57990648286CBC1200A31B9F /* EventEmitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventEmitter.swift; sourceTree = "<group>"; };
 		5799064A286D5B6100A31B9F /* TimerUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerUtility.swift; sourceTree = "<group>"; };
@@ -124,9 +118,6 @@
 				571B11162865DFB10087E0E4 /* DemoApp-Bridging-Header.h */,
 				570834E5286A0B4E0075B89A /* GlobalTouchService.swift */,
 				570834EF286A0C6C0075B89A /* IdleTouchDetect.swift */,
-				572D144D286B6F6300F0AC9C /* testFile.swift */,
-				572D1453286B781500F0AC9C /* EventSend.swift */,
-				572D1455286B782400F0AC9C /* EventSend.m */,
 				57990646286C68CF00A31B9F /* IdleTouchDetect.m */,
 				57990648286CBC1200A31B9F /* EventEmitter.swift */,
 				5799064A286D5B6100A31B9F /* TimerUtility.swift */,
@@ -451,18 +442,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				572D1456286B782400F0AC9C /* EventSend.m in Sources */,
 				57990649286CBC1200A31B9F /* EventEmitter.swift in Sources */,
 				5799064B286D5B6100A31B9F /* TimerUtility.swift in Sources */,
 				570834E9286A0BC60075B89A /* NativeDemoViewController.swift in Sources */,
 				570834EE286A0BDF0075B89A /* NavigationModule.m in Sources */,
 				570834E6286A0B4E0075B89A /* GlobalTouchService.swift in Sources */,
 				570834ED286A0BDF0075B89A /* Navigation.swift in Sources */,
-				572D1454286B781500F0AC9C /* EventSend.swift in Sources */,
 				570834F0286A0C6C0075B89A /* IdleTouchDetect.swift in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
-				572D144E286B6F6300F0AC9C /* testFile.swift in Sources */,
 				57990647286C68CF00A31B9F /* IdleTouchDetect.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

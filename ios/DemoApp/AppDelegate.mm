@@ -34,7 +34,6 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  _isNativeViewLoaded = false;
   _isUserPressedBackButton = false;
    RCTAppSetupPrepareApp(application);
 

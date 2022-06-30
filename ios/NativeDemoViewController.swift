@@ -14,14 +14,13 @@ class NativeDemoViewController: UIViewController  {
   @IBAction func onGoBack(_ sender: UIButton) {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     appDelegate.isUserPressedBackButton = true
-    appDelegate.idleTimer.invalidate()
-    appDelegate.idleTimer = nil
+    TimerUtility.timerValidation()
     appDelegate.isUserSessionActive = false
-    EventEmitter.sharedInstance.dispatch(name: "timeoutEvent", body: "Shenu Gupta")
+    EventEmitter.sharedInstance.dispatch(name: "serviceStopped", body: "Shenu Gupta")
     self.dismiss(animated: true, completion: nil)
   }
   
- 
+
     override func viewWillAppear(_ animated: Bool) {
       super.viewWillAppear(true)
       self.navigationController?.setNavigationBarHidden(true, animated: true)
