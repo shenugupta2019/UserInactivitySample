@@ -12,8 +12,12 @@ import Foundation
 class NativeDemoViewController: UIViewController  {
 
   @IBAction func onGoBack(_ sender: UIButton) {
-   // let idleDetect = IdleTouchDetect()
-    //idleDetect.resetTimer()
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    appDelegate.isUserPressedBackButton = true
+    appDelegate.idleTimer.invalidate()
+    appDelegate.idleTimer = nil
+    appDelegate.isUserSessionActive = false
+    EventEmitter.sharedInstance.dispatch(name: "timeoutEvent", body: "Shenu Gupta")
     self.dismiss(animated: true, completion: nil)
   }
   

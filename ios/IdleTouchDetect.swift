@@ -18,9 +18,7 @@ import Foundation
 //   // sendEvent(withName: "onIdleDetect", body: ["count increase",1])
 //  }
    
-    
-   
-   
+      
     override init() {
      super.init()
       EventEmitter.sharedInstance.registerEventEmitter(eventEmitter: self)
@@ -31,10 +29,20 @@ import Foundation
   func startService(){
     DispatchQueue.main.async {
       let appDelegate = UIApplication.shared.delegate as! AppDelegate
-      appDelegate.isNativeViewLoaded = true
+      appDelegate.isUserSessionActive = true
       print(" start service called")
     }
     }
+   
+   @objc
+   func stopService(){
+     DispatchQueue.main.async {
+       let appDelegate = UIApplication.shared.delegate as! AppDelegate
+       appDelegate.isUserSessionActive = false
+       TimerUtility.timerValidation()
+       print(" stop service called")
+     }
+     }
    
    func testEventCallback(_ message: String) {
      if hasListeners {
@@ -71,7 +79,7 @@ import Foundation
   }
   
    override func supportedEvents() -> [String]! {
-    return ["testEvent"];
+    return ["timeoutEvent"];
   }
   
   func dismissViewControllers() {

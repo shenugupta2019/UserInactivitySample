@@ -10,12 +10,22 @@ const  startGlobalService = () => {
   touchService.startService();
   };
 
+  const  navigateToiOSScreen = () => {
+    const navigation = NativeModules.Navigation;
+    navigation.navigateTo('iOSScreen');
+    };
+
+    const  stopTrackingService = () => {
+      const touchService = NativeModules.IdleTouchDetect;
+      touchService.stopService();
+      };
+
 // 
 
 const App = props => {
   useEffect(() => {
-    eventEmitter.addListener('testEvent', result =>
-    console.log('NativeiOSToReactNative SHENU', result),
+    eventEmitter.addListener('timeoutEvent', result =>
+    console.log('Timeout NativeiOSToReactNative SHENU', result),
   );
    
 
@@ -36,10 +46,13 @@ const App = props => {
   return (
     <View style={styles.container}>
       <Text>App</Text>
-      <Button title="Increase Count" onPress={startGlobalService
+      <Button title="Start Tracking Service" onPress={startGlobalService
+      } />
+        <Button title="Navigate To IOS View" onPress={navigateToiOSScreen
+      } />
+       <Button title="Stop Tracking Service" onPress={stopTrackingService
       } />
 
-   
     </View>
   );
 };

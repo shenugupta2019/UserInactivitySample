@@ -12,6 +12,7 @@
 @interface RCT_EXTERN_MODULE(IdleTouchDetect,RCTEventEmitter)
 
 RCT_EXTERN_METHOD(startService)
+RCT_EXTERN_METHOD(stopService)
 
 @end
 

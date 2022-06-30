@@ -26,7 +26,7 @@ class EventEmitter{
     }
 
     func dispatch(name: String, body: Any?) {
-      EventEmitter.eventEmitter.sendEvent(withName: "testEvent", body: body)
+      EventEmitter.eventEmitter.sendEvent(withName: "timeoutEvent", body: body)
     }
 
     /// All Events which must be support by React Native.

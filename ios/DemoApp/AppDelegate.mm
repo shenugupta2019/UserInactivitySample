@@ -35,8 +35,8 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   _isNativeViewLoaded = false;
-  _isSessionTimeout = false;
-  RCTAppSetupPrepareApp(application);
+  _isUserPressedBackButton = false;
+   RCTAppSetupPrepareApp(application);
 
   _bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
 

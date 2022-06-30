@@ -49,21 +49,15 @@ protocol GlobalTouchServiceDelegate {
             for touch in touches {
                 if touch.phase == UITouch.Phase.ended {
                   timeoutInSeconds = 5.0
-                  if appDelegate.idleTimer != nil {
-                    if appDelegate.idleTimer.isValid{
-                      appDelegate.idleTimer.invalidate()
-                      appDelegate.idleTimer = nil
-                    }
-                  }
-                  
-                  if appDelegate.idleTimer != nil {
-                    appDelegate.idleTimer.invalidate()
-                    appDelegate.idleTimer = nil
-                  }
+                   TimerUtility.timerValidation()
                     
-                  if appDelegate.isNativeViewLoaded == true {
+                  if appDelegate.isUserSessionActive == true {
                         self.startIdleTimer()
                   }
+                  else {
+                    TimerUtility.timerValidation()
+                  }
+  
                     print("Touch Detect")
             }
         }
@@ -90,7 +84,22 @@ protocol GlobalTouchServiceDelegate {
        appDelegate.idleTimer.invalidate()
        appDelegate.idleTimer = nil
        if timeoutInSeconds == 5.0 {
-         EventEmitter.sharedInstance.dispatch(name: "testEvent", body: "Shenu Gupta")
+         EventEmitter.sharedInstance.dispatch(name: "timeoutEvent", body: "Shenu Gupta")
+         let appDelegate = UIApplication.shared.delegate as! AppDelegate
+         appDelegate.window?.rootViewController?.dismiss(animated: true, completion: nil)
+         if appDelegate.idleTimer != nil {
+           if appDelegate.idleTimer.isValid == true {
+             appDelegate.idleTimer.invalidate()
+             //appDelegate.idleTimer = nil
+           }
+         }
+         if appDelegate.idleTimer != nil {
+           appDelegate.idleTimer.invalidate()
+           appDelegate.idleTimer = nil
+         }
+         
+         appDelegate.isUserSessionActive = false
+       
          print("session timeout")
         // IdleTouchDetect.shared.sendTest()
        }
